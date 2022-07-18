@@ -27,12 +27,35 @@ app.post("/", async (req, res) => {
   });
   try {
     await todoTask.save();
-    console.log("creates at: ", todoTask);
+    console.log(todoTask);
     res.redirect("/");
   } catch (error) {
     res.status(500).send(error);
   }
 });
+
+app
+  .route("/edit/:id")
+  .get(async (req, res) => {
+    const id = req.params.id;
+    try {
+      const tasks = await TodoTask.find({});
+      res.render("edit.ejs", { todoTasks: tasks, taskId: id });
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  })
+  .post(async (req, res) => {
+    const id = req.params.id;
+    const { title, content } = req.body;
+    try {
+      await TodoTask.findByIdAndUpdate(id, { title, content });
+      res.redirect("/");
+    } catch (error) {
+      res.status(500).send(error);
+      res.redirect("/");
+    }
+  });
 
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("connected to DB");
