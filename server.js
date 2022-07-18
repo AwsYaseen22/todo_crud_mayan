@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", async (req, res) => {
   try {
     const tasks = await TodoTask.find({});
-    console.log(tasks);
+    // console.log(tasks);
     res.render("index.ejs", { todoTasks: tasks });
   } catch (error) {
     res.status(500).send(error);
@@ -27,7 +27,7 @@ app.post("/", async (req, res) => {
   });
   try {
     await todoTask.save();
-    console.log(todoTask);
+    console.log("creates at: ", todoTask);
     res.redirect("/");
   } catch (error) {
     res.status(500).send(error);
