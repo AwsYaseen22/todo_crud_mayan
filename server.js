@@ -8,10 +8,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () =>
-  console.log("connected to DB")
-);
+app.get("/", (req, res) => res.send("test"));
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
+  console.log("connected to DB");
+  app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+  });
 });
