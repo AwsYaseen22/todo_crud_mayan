@@ -57,6 +57,16 @@ app
     }
   });
 
+app.route("/remove/:id").get(async (req, res) => {
+  const id = req.params.id;
+  try {
+    await TodoTask.findByIdAndRemove(id);
+    res.redirect("/");
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+});
+
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("connected to DB");
   app.listen(PORT, () => {
