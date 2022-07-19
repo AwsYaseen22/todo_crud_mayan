@@ -43,7 +43,7 @@ input {
     padding: 5px;
     border-radius: 5px;
     height: 20px;
-    font-family: 'Edu TAS Beginner', sans-serif;
+    font-family: 'Permanent Marker', cursive;
 }
 
 textarea {
@@ -51,7 +51,8 @@ textarea {
     padding: 2px;
     width: 100%;
     border-radius: 5px;
-    font-family: 'Edu TAS Beginner', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+
 }
 
 .todo-header button {
@@ -62,7 +63,8 @@ textarea {
     margin: 5px;
     padding: 5px;
     background-color: rgb(51, 212, 51);
-    font-family: 'Edu TAS Beginner', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+
 }
 
 ul {
@@ -108,7 +110,8 @@ ul {
     background-color: rgb(51, 212, 100);
     margin-left: 5px;
     max-height: 30px;
-    font-family: 'Edu TAS Beginner', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+
     display: block;
 }
 
